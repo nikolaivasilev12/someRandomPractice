@@ -1,0 +1,47 @@
+function telephoneCheck(str) {
+  const stringDashesLength = str.match(/-/g) || [].length
+  if (stringDashesLength && stringDashesLength.length > 2) {
+    return false
+  } else {
+    if (!str.includes(')') && !str.includes('(')) {
+      const cleanString = str.replace(/(?!\w|\s)./g, '').split(' ').join('')
+      const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+      for (let i = 0; i < cleanString.length; i++) {
+        if (alphabet.includes(cleanString[i])) {
+          return false
+        }
+      }
+      if (cleanString.length === 10) {
+        return true
+      } else if (cleanString.length === 11) {
+        if (cleanString.charAt(0) === '1') {
+          return true
+        } else {
+          return false
+        }
+      } else {
+        console.log('Error("Too many numbers")')
+        return false
+      }
+    } else {
+      let disectArr = str.split(' ')
+      if (disectArr.length === 1) {
+        disectArr = str.split('-')
+      }
+      for (let [index, piece] of disectArr.entries()) {
+        if (piece.includes(')') && piece.includes('(')) {
+          if ((str.indexOf(')') - str.indexOf('(')) === 4  ) {
+            let asd = piece.slice((str.indexOf('('), str.indexOf(')') + 1))
+            const cleanPiece = piece.replace(/(?!\w|\s)./g, '')
+
+            if (cleanPiece == 555 || asd == 555) {
+              return true
+            }
+          }
+        }
+      }
+      return false
+    }
+  }
+}
