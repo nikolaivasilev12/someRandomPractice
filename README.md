@@ -1,2 +1,5 @@
 # someRandomPractice
-Random functions that i made
+Some functions that I made for my freeCodeCamp certification
+ - Roman number converter
+ - Ceasers cypher
+ - Cell phone number validator
