@@ -193,3 +193,31 @@ function getRomanLetter(int, isDec = false, isHun = false, isThousand = false) {
 }
 
 convertToRoman(3999);
+
+// Second solution
+function convertToRoman(num) {
+  const obj = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  }
+  let str = ''
+  for (const roman in obj) {
+    while (obj[roman] <= num) {
+      str += roman
+      num -= obj[roman]
+    }
+  }
+ return str;
+}
+
